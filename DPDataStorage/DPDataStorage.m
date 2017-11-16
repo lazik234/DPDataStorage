@@ -298,6 +298,7 @@ NSString * const DPDataStorageNotificationNameKey = @"name";
     if (coordinator != nil) {
         managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
         [managedObjectContext setPersistentStoreCoordinator:coordinator];
+        managedObjectContext.mergePolicy = [[NSMergePolicy alloc] initWithMergeType:NSMergeByPropertyObjectTrumpMergePolicyType];
     }
     return managedObjectContext;
 }
